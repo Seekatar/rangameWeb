@@ -2,70 +2,27 @@
 <html lang="en">
 <head>
     <link href="rangame.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
-    <div margin="0">
-    <h1 class="title">Random Game</h1>
+    <div>
+	    <h1 class="title">Random Game</h1>
     </div>
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <p>Click three points in the box</p>
-    <button id="plot" class="rounded" disabled="disabled">Plot</button>
-    <button id="reset" class="rounded" disabled="disabled">Reset</button>
-    <p>Points:&nbsp;<input id="points" type="range" min="2" max="20" onchange="javascript: sides = $('#points')[0].value;$('#pointValue')[0].textContent = sides" value="3"/><span id="pointValue">3</span></p>
-    <p>Foreground:&nbsp;<input id="fgcolor" class="rounded" type="color" onchange="javascript:fillStyle = $('#fgcolor')[0].value" /></p>
-    <p>Background:&nbsp;<input id="bgcolor" class="rounded" type="color" onchange="javascript:backFillStyle = $('#bgcolor')[0].value" /></p>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script>
-        var ptx = [0, 0, 0];
-        var pty = [0, 0, 0];
-        var k = 0;
-        var fillStyle = "#0000ff";
-        var points = 3;
-        var backFillStyle = "whitesmoke";
-
-        (function ($) {
-            $('#canvas').click(function (e) {
-                var ctx = this.getContext("2d");
-
-                if (k < 3) {
-                    var x = e.pageX - this.offsetLeft
-                    var y = e.pageY - this.offsetTop
-                    var i = x + 1
-                    var j = y + 1
-                    ctx.fillRect(x, y, 2, 2);
-
-                    ptx[k] = x;
-                    pty[k] = y;
-                    $('p').text("Click another one.");
-                    k += 1;
-                }
-
-                if (k >= 3) {
-                    $('p').text("Press Plot!");
-                    $('button').removeAttr("disabled")
-                    $('#plot').click(function () {
-                        ctx.fillStyle = fillStyle
-                        var nx = 0
-                        var ny = 0
-                        $('p').text("Plotting...")
-                        for (var i = 0; i < 10000; i++) {
-                            var q = Math.floor(Math.random() * 3);
-                            nx = Math.abs((ptx[q] + nx) / 2)
-                            ny = Math.abs((pty[q] + ny) / 2)
-                            ctx.fillRect(nx, ny, 1, 1)
-                        }
-                        $('p').text("Plotted")
-                    })
-                    $('#reset').click(function () {
-                        k = 0;
-                        ctx.clearRect(0, 0, $('#canvas').width(), $('#canvas').height())
-                        this["disabled"] = "disabled"
-                        $("#plot").attr("disabled", "disabled")
-                    })
-                }
-            });
-        })(jQuery);
-
-    </script>
+    <div class="container">
+        <div class="sideBar">
+            <button id="plot" class="rounded" disabled="disabled">Plot</button>
+            <button id="reset" class="rounded" disabled="disabled">Reset</button>
+		    <p>Sides:&nbsp;<input id="sides" type="number" min="2" max="20" value="3" onchange="javascript: sides = $('#points')[0].value;$('#pointValue')[0].textContent = sides" /></p>
+            <p>Points:&nbsp;<input id="points" type="number" min="100" max="10000" step="100" value="500" onchange="javascript: sides = $('#points')[0].value;$('#pointValue')[0].textContent = points"></p>
+            <p><input id="regular" type="checkbox"/>Regular figure</p>
+		    <p>Foreground:&nbsp;<input id="fgcolor" class="rounded" type="color" onchange="javascript:fillStyle = $('#fgcolor')[0].value" /></p>
+		    <p>Background:&nbsp;<input id="bgcolor" class="rounded" type="color" onchange="javascript:backFillStyle = $('#bgcolor')[0].value" /></p>
+        </div>
+        <div class="main">
+            <canvas id="canvas" width="500" height="500"></canvas>
+            <p id="status">Click three points in the box</p>
+        </div>
+    </div>
+    <script src="rangame.js"></script>
 </body>
 </html>
