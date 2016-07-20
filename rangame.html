@@ -4,23 +4,27 @@
     <link href="rangame.css" rel="stylesheet" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
-<body>
+<body style="overflow:auto">
     <div>
 	    <h1 class="title">Random Game</h1>
     </div>
     <div class="container">
         <div class="sideBar">
-            <button id="plot" class="rounded" disabled="disabled">Plot</button>
-            <button id="reset" class="rounded" disabled="disabled">Reset</button>
+            <button id="plot" class="rounded tooltip" disabled="disabled">Plot
+                <div class="tooltiptext">Click to plot points on the canvas</div>
+            </button>
+            <button id="reset" class="rounded tooltip" disabled="disabled">Reset
+                <div class="tooltiptext">Reset the canvas</div>
+            </button>
 		    <p>Sides:&nbsp;<input id="sides" type="number" min="2" max="20" value="3" onchange="javascript: sides = $('#points')[0].value;$('#pointValue')[0].textContent = sides" /></p>
             <p>Points:&nbsp;<input id="points" type="number" min="100" max="10000" step="100" value="500" onchange="javascript: sides = $('#points')[0].value;$('#pointValue')[0].textContent = points"></p>
             <p><input id="regular" type="checkbox"/>Regular figure</p>
 		    <p>Foreground:&nbsp;<input id="fgcolor" class="rounded" type="color" onchange="javascript:fillStyle = $('#fgcolor')[0].value" /></p>
 		    <p>Background:&nbsp;<input id="bgcolor" class="rounded" type="color" onchange="javascript:backFillStyle = $('#bgcolor')[0].value" /></p>
+            <p id="status">Click in the box</p>
         </div>
         <div class="main">
-            <canvas id="canvas" width="500" height="500"></canvas>
-            <p id="status">Click three points in the box</p>
+            <canvas id="canvas" width=800px; height="800px"></canvas>
         </div>
     </div>
     <script src="rangame.js"></script>

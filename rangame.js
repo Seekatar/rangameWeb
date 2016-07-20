@@ -28,7 +28,7 @@
                     vertices[k].x = x;
                     vertices[k].y = y;
                     k += 1;
-                    $('#status').text("Click another one. (" + (sides - k).toString() + " to go)");
+                    $('#status').text((sides - k).toString() + " to go");
                 }
 
                 if (k >= sides) {
@@ -52,6 +52,7 @@
                         ctx.clearRect(0, 0, $('#canvas').width(), $('#canvas').height())
                         this["disabled"] = "disabled"
                         $("#plot").attr("disabled", "disabled")
+                        $('#status').show().text("Click a point")
                     })
                 }
             });
