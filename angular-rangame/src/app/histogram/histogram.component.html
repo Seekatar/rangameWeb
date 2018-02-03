@@ -1,7 +1,7 @@
 <p class="histoTitle">Histogram for {{plot.points.length}} vertices</p>
-<div class="progress-bar horizontal rounded" *ngFor="let point of plot.points">
+<div class="progress-bar horizontal rounded" *ngFor="let point of plot.points; let i = index">
     <div class="progress-track">
-      <div class="progress-fill" [style.width]="(100*point/plot.total()).toFixed()+'%'" [style.background-color]="getBackgroundColor()">
+      <div class="progress-fill" [style.width]="(100*point/plot.total()).toFixed()+'%'" [style.background-color]="getBackgroundColor(i)">
         <span>{{point}}</span>
       </div>
     </div>

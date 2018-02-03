@@ -11,7 +11,6 @@ import { PLOT } from "../mock-plot"
 export class HistogramComponent implements OnInit {
 
   plot: Plot;
-  nextColor: number = -1;
 
   constructor() {
     this.plot = PLOT;
@@ -27,11 +26,9 @@ export class HistogramComponent implements OnInit {
     "AliceBlue"
   ];
 
-  getBackgroundColor() {
-    this.nextColor ++;
-    if ( this.nextColor >= HistogramComponent.COLORS.length )
-      this.nextColor = 0;
-    return HistogramComponent.COLORS[this.nextColor];
+  getBackgroundColor(index:number) {
+    index = index % HistogramComponent.COLORS.length;
+    return HistogramComponent.COLORS[index];
   }
 
 }
