@@ -24,4 +24,12 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  plot() {
+    alert("plot!")
+  }
+
+  reset() {
+    alert("reset!")
+  }
+
 }
