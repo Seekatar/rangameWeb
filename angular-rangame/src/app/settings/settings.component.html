@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="sideBar">
+    <button (onclick)="plot" id="plot" class="rounded tooltip" disabled="disabled">Plot
+      <div class="tooltiptext">Click to plot points on the canvas</div>
+    </button>
+    <button (click)="reset" id="reset" class="rounded tooltip" disabled="disabled">Reset
+      <div class="tooltiptext">Reset the canvas</div>
+    </button>
+    <p>Sides:&nbsp;
+      <input id="sides" type="number" min="2" max="20" value="3" [(ngModel)]="settings.sides"/>
+    </p>
+    <p>Points:&nbsp;
+      <input id="points" type="number" min="100" max="10000" step="100" value="500" [(ngModel)]="settings.points" />
+    </p>
+    <p>
+      <input id="regular" type="checkbox" [checked]="settings.regular" (change)="settings.regular != settings.regular"/>Regular figure</p>
+    <p>
+      <input id="histogram" type="checkbox" [checked]="settings.showHistogram" (change)="settings.showHistogram != settings.showHistogram"/>Show histogram</p>
+    <p>Foreground:&nbsp;
+      <input id="fgcolor" class="rounded" type="color" [(ngModel)]="settings.foregroundColor" />
+    </p>
+    <p>Background:&nbsp;
+      <input id="bgcolor" class="rounded" type="color" [(ngModel)]="settings.backgroundColor" />
+    </p>
+    <p id="status">Click in the box</p>
+  </div>
+</div>

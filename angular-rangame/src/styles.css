@@ -1,0 +1,88 @@
+
+body {
+  background-color: white
+}
+
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 5px;
+  padding: 0px;
+}
+
+.sideBar,.main {
+  height: 100%;
+}
+
+#status {
+  font-family: Courier New, Courier, monospace;
+  font-size: .7em;
+}
+
+.sideBar {
+  float: left;
+  width: auto;
+  box-sizing:border-box
+}
+
+.container {
+  box-sizing:border-box
+}
+
+.main{
+  overflow:hidden;
+}
+
+.title {
+  margin: 0px;
+  text-align: center;
+  text-shadow: 2px 2px darkgray
+}
+
+#pointValue {
+  width: 3em;
+  float:right;
+}
+
+.hideIt {
+  transform: translate(0,0px);
+  transition-duration: 12ms;
+  transition-delay: 0ms;
+
+  transform: translate(0,30px);
+  transition-duration: 2s;
+  transition-delay: 300ms;
+}
+
+.showIt {
+  transform: translate(0,-30px);
+  transition-duration: 2s;
+  transition-delay: 300ms;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: 0px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltiptext {
+  font-size: .5em;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
