@@ -5,17 +5,15 @@
   </h1>
 </div>
 <div class="container">
-    <div class="sideBar">
-      <button (click)="plot()" id="plot" class="rounded tooltip" [disabled]="!settings.pointsSet()">Plot
-        <div class="tooltiptext">Click to plot points on the canvas</div>
-      </button>
-      <button (click)="reset()" id="reset" class="rounded tooltip" [disabled]="!settings.pointsSet()">Reset
-        <div class="tooltiptext">Reset the canvas</div>
-      </button>
-      <app-status></app-status>
-      <app-settings [settings]="settings"></app-settings>
-</div>
-<app-canvas style="margin:0" [settings]="settings"></app-canvas>
-<app-histogram [settings]="settings"></app-histogram>
-
-
+  <div class="sideBar">
+    <button (click)="plot()" id="plot" class="rounded tooltip" [disabled]="!settings.pointsSet()">Plot
+      <div class="tooltiptext">Click to plot points on the canvas</div>
+    </button>
+    <button (click)="reset()" id="reset" class="rounded tooltip" [disabled]="!settings.pointsSet()">Reset
+      <div class="tooltiptext">Reset the canvas</div>
+    </button>
+    <app-status></app-status>
+    <app-settings [settings]="settings"></app-settings>
+    <app-histogram [settings]="settings"></app-histogram>
+  </div>
+  <app-canvas style="margin:0" [settings]="settings"></app-canvas>

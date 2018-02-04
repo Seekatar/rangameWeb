@@ -27,8 +27,8 @@ export class PlotterService {
     this.plotted = true;
     for (var i = 0; i < settings.points; i++) {
       var q = Math.floor(Math.random() * settings.sides);
-      nx = Math.abs((settings.vertices[q].x + nx) / 2)
-      ny = Math.abs((settings.vertices[q].y + ny) / 2)
+      nx += Math.round((settings.vertices[q].x - nx) / settings.divisor);
+      ny += Math.round((settings.vertices[q].y - ny) / settings.divisor);
       this.pointCount[q]++;
       ctx.fillRect(nx, ny, 1, 1)
     }
@@ -43,6 +43,10 @@ export class PlotterService {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     settings.totalPointsSet = 0;
     this.status.setMessage("Click a point");
+  }
+
+  max(): number {
+    return Math.max(...this.pointCount);
   }
 
   total(): number {

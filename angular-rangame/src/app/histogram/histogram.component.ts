@@ -25,8 +25,8 @@ export class HistogramComponent implements OnInit {
     "Red",
     "Green",
     "Blue",
-    "Yellow",
-    "Cyan",
+    "Orange",
+    "DarkCyan",
     "Magenta"
   ];
 
@@ -36,7 +36,8 @@ export class HistogramComponent implements OnInit {
   }
 
   getWidth(point:number): string {
-    let ret = (100*point/this.plotter.total()).toFixed()+'%';
+    let max = this.plotter.max()*1.1;
+    let ret = (100*point/max).toFixed()+'%';
     console.log("ret is ",ret);
     return ret;
   }
