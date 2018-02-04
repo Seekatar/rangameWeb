@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Vertex } from '../model/vertex'
+import { Settings } from '../model/settings'
 
 @Component({
   selector: 'app-canvas',
@@ -9,9 +10,10 @@ import { Vertex } from '../model/vertex'
 
 export class CanvasComponent implements OnInit {
 
+  @Input()
+  settings: Settings;
+
    vertices: Vertex [] = [new Vertex(), new Vertex(), new Vertex() ];
-   setVertices = 0;
-   sides: number = 3;
 
   constructor() { }
 
@@ -21,7 +23,7 @@ export class CanvasComponent implements OnInit {
   setPoint(event) {
     console.log(`Point is set at ${event.offsetX} ${event.offsetY}!`)
 
-    if (this.setVertices < this.sides) {
+    if (this.settings.totalPointsSet < this.settings.sides) {
       var x = event.offsetX
       var y = event.offsetY;
       var i = x + 1
@@ -31,9 +33,9 @@ export class CanvasComponent implements OnInit {
 
       ctx.fillRect(x, y, 2, 2);
 
-      this.vertices[this.setVertices].x = x;
-      this.vertices[this.setVertices].y = y;
-      this.setVertices++
+      this.vertices[this.settings.totalPointsSet].x = x;
+      this.vertices[this.settings.totalPointsSet].y = y;
+      this.settings.totalPointsSet++;
   }
 
   }

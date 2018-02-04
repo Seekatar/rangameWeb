@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Settings } from "../model/settings"
 
@@ -9,14 +9,8 @@ import { Settings } from "../model/settings"
 })
 export class SettingsComponent implements OnInit {
 
-  settings: Settings = {
-    regular: false,
-    sides: 3,
-    backgroundColor: "#fff00f",
-    points: 500,
-    foregroundColor: "#00ff00",
-    showHistogram: false
-  };
+  @Input()
+  settings: Settings;
 
   constructor() { }
 
@@ -25,11 +19,11 @@ export class SettingsComponent implements OnInit {
   }
 
   plot() {
-    alert("plot!")
+    alert("plot!");
   }
 
   reset() {
-    alert("reset!")
+    alert("reset!");
   }
 
 }

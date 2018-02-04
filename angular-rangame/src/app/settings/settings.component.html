@@ -1,9 +1,9 @@
 <div class="container">
   <div class="sideBar">
-    <button (onclick)="plot()" id="plot" class="rounded tooltip" disabled="disabled">Plot
+    <button (click)="plot()" id="plot" class="rounded tooltip" [disabled]="!settings.pointsSet()">Plot
       <div class="tooltiptext">Click to plot points on the canvas</div>
     </button>
-    <button (click)="reset()" id="reset" class="rounded tooltip" disabled="disabled">Reset
+    <button (click)="reset()" id="reset" class="rounded tooltip" [disabled]="!settings.pointsSet()">Reset
       <div class="tooltiptext">Reset the canvas</div>
     </button>
     <p>Sides:&nbsp;

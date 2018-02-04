@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Settings } from './model/settings'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Random Game -- Angular Style';
+  settings: Settings = new Settings();
 }
