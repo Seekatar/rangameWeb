@@ -7,6 +7,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { HistogramComponent } from './histogram/histogram.component';
 import { PlotterService } from './plotter.service';
+import { StatusService } from './status.service';
+import { StatusComponent } from './status/status.component';
 
 
 @NgModule({
@@ -14,13 +16,14 @@ import { PlotterService } from './plotter.service';
     AppComponent,
     SettingsComponent,
     CanvasComponent,
-    HistogramComponent
+    HistogramComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [PlotterService],
+  providers: [PlotterService, StatusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

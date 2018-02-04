@@ -12,10 +12,10 @@
       <button (click)="reset()" id="reset" class="rounded tooltip" [disabled]="!settings.pointsSet()">Reset
         <div class="tooltiptext">Reset the canvas</div>
       </button>
-      <p id="status">Click in the box</p>
+      <app-status></app-status>
       <app-settings [settings]="settings"></app-settings>
 </div>
-<app-canvas [settings]="settings"></app-canvas>
+<app-canvas style="margin:0" [settings]="settings"></app-canvas>
 <app-histogram></app-histogram>
 
 

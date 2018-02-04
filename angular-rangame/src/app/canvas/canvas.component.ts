@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Vertex } from '../model/vertex'
 import { Settings } from '../model/settings'
 import { PlotterService } from '../plotter.service';
+import { StatusService } from '../status.service';
 
 @Component({
   selector: 'app-canvas',
@@ -14,15 +15,21 @@ export class CanvasComponent implements OnInit {
   @Input()
   private settings: Settings;
 
-  private vertices: Vertex [] = [new Vertex(), new Vertex(), new Vertex() ];
-
-  constructor(private plotter: PlotterService) { }
+  constructor(private plotter: PlotterService, private status: StatusService) { }
 
   ngOnInit() {
+    this.status.setMessage("Click in box");
   }
 
   setPoint(event) {
     console.log(`Point is set at ${event.offsetX} ${event.offsetY}!`)
+
+    if (this.settings.vertices === null ||
+      this.settings.vertices.length !== this.settings.sides) {
+      this.settings.vertices = []
+      for (i = 0; i < this.settings.sides; i++)
+        this.settings.vertices.push(new Vertex());
+    }
 
     if (this.settings.totalPointsSet < this.settings.sides) {
       var x = event.offsetX
@@ -30,14 +37,20 @@ export class CanvasComponent implements OnInit {
       var i = x + 1
       var j = y + 1
 
+      this.plotter.canvas = event.currentTarget;
       var ctx = event.currentTarget.getContext("2d");
 
       ctx.fillRect(x, y, 2, 2);
 
-      this.vertices[this.settings.totalPointsSet].x = x;
-      this.vertices[this.settings.totalPointsSet].y = y;
+      this.settings.vertices[this.settings.totalPointsSet].x = x;
+      this.settings.vertices[this.settings.totalPointsSet].y = y;
       this.settings.totalPointsSet++;
-  }
+      if ( this.settings.totalPointsSet < this.settings.sides )
+        this.status.setMessage(`${this.settings.sides - this.settings.totalPointsSet} to go!`);
+      else
+        this.status.setMessage(`Press plot!`);
+
+    }
 
   }
 }

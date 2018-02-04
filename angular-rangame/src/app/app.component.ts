@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Settings } from './model/settings'
+import { PlotterService } from './plotter.service';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,18 @@ import { Settings } from './model/settings'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private plotter: PlotterService) { }
+
   title = 'Random Game -- Angular Style';
   settings: Settings = new Settings();
 
   plot() {
-    alert("plot!");
+    this.plotter.plot(this.settings);
   }
 
   reset() {
-    alert("reset!");
+    this.plotter.reset(this.settings);
   }
 
 }

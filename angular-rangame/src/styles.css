@@ -10,6 +10,7 @@ body {
 }
 
 .sideBar,.main {
+  margin: 0;
   height: 100%;
 }
 
@@ -71,7 +72,6 @@ body {
   transform: scale(1.1,1.1);
 }
 
-
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
@@ -88,7 +88,7 @@ body {
 
   /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0s linear 1s;
 }
 
 .tooltiptext {
@@ -98,4 +98,5 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+  transition: opacity 0s linear 1s;
 }

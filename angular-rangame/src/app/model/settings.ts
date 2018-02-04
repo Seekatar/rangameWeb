@@ -1,3 +1,4 @@
+import { Vertex } from "./vertex";
 
 export class Settings {
 
@@ -7,8 +8,10 @@ export class Settings {
   showHistogram: boolean = false;
   foregroundColor: string = "#000000";
   backgroundColor: string = "#ffffff";
-  totalPointsSet: number = 0;
 
+  totalPointsSet: number = 0;
+  vertices: Vertex [] = null;
+  
   pointsSet() : boolean {
     return this.totalPointsSet === this.sides;
   }
