@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Vertex } from '../model/vertex'
 import { Settings } from '../model/settings'
+import { PlotterService } from '../plotter.service';
 
 @Component({
   selector: 'app-canvas',
@@ -11,11 +12,11 @@ import { Settings } from '../model/settings'
 export class CanvasComponent implements OnInit {
 
   @Input()
-  settings: Settings;
+  private settings: Settings;
 
-   vertices: Vertex [] = [new Vertex(), new Vertex(), new Vertex() ];
+  private vertices: Vertex [] = [new Vertex(), new Vertex(), new Vertex() ];
 
-  constructor() { }
+  constructor(private plotter: PlotterService) { }
 
   ngOnInit() {
   }

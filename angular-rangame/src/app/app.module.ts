@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { HistogramComponent } from './histogram/histogram.component';
+import { PlotterService } from './plotter.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { HistogramComponent } from './histogram/histogram.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PlotterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

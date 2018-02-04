@@ -9,4 +9,13 @@ import { Settings } from './model/settings'
 export class AppComponent {
   title = 'Random Game -- Angular Style';
   settings: Settings = new Settings();
+
+  plot() {
+    alert("plot!");
+  }
+
+  reset() {
+    alert("reset!");
+  }
+
 }

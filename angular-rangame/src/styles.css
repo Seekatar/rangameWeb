@@ -59,6 +59,19 @@ body {
   transition-delay: 300ms;
 }
 
+.rounded {
+  background-color: darkgray;
+  border-radius: 15px 1px;
+  padding: 10px;
+  border-style: none;
+  transition: all 100ms ease;
+}
+
+.rounded:hover {
+  transform: scale(1.1,1.1);
+}
+
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;

@@ -17,13 +17,4 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  plot() {
-    alert("plot!");
-  }
-
-  reset() {
-    alert("reset!");
-  }
-
 }
