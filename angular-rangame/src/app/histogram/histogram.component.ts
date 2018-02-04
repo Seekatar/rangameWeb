@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Plot } from "../model/plot"
 
 import { PLOT } from "../mock-plot"
+import { PlotterService } from '../plotter.service';
+import { Settings } from '../model/settings';
 
 @Component({
   selector: 'app-histogram',
@@ -10,11 +12,11 @@ import { PLOT } from "../mock-plot"
 })
 export class HistogramComponent implements OnInit {
 
-  plot: Plot;
+  @Input()
+  settings: Settings
 
-  constructor() {
-    this.plot = PLOT;
-   }
+  constructor(private plotter: PlotterService) {
+  }
 
   ngOnInit() {
   }
@@ -23,12 +25,20 @@ export class HistogramComponent implements OnInit {
     "Red",
     "Green",
     "Blue",
-    "AliceBlue"
+    "Yellow",
+    "Cyan",
+    "Magenta"
   ];
 
   getBackgroundColor(index:number) {
     index = index % HistogramComponent.COLORS.length;
     return HistogramComponent.COLORS[index];
+  }
+
+  getWidth(point:number): string {
+    let ret = (100*point/this.plotter.total()).toFixed()+'%';
+    console.log("ret is ",ret);
+    return ret;
   }
 
 }

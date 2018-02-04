@@ -13,7 +13,12 @@ export class PlotterService {
 
   plot(settings: Settings) {
     var ctx = this.canvas.getContext("2d");
-    this.pointCount = new Array(settings.sides);
+    if ( !this.pointCount || this.pointCount.length === 0 )
+    {
+      this.pointCount = new Array(settings.sides);
+      for ( i = 0; i < this.pointCount.length; i++ )
+        this.pointCount[i] = 0;
+    }
 
     ctx.fillStyle = settings.foregroundColor;
     var nx = Math.floor(Math.random() * this.canvas.width)
@@ -32,10 +37,16 @@ export class PlotterService {
 
   reset(settings: Settings) {
     this.plotted = false;
-    let k = 0;
+    this.pointCount = []
+
     var ctx = this.canvas.getContext("2d");
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     settings.totalPointsSet = 0;
     this.status.setMessage("Click a point");
   }
+
+  total(): number {
+    return this.pointCount.reduce((total,num) => total+num);
+  };
+
 }
