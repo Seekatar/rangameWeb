@@ -16,7 +16,8 @@ body {
 
 #status {
   font-family: Courier New, Courier, monospace;
-  font-size: .7em;
+  font-size: 1em;
+  font-weight: bold
 }
 
 .sideBar {
@@ -62,7 +63,7 @@ body {
 
 .rounded {
   background-color: darkgray;
-  border-radius: 15px 1px;
+  border-radius: 10px;
   padding: 10px;
   border-style: none;
   transition: all 100ms ease;

@@ -1,6 +1,6 @@
 <div>
   <hr>
-  <p>Settings</p>
+  <p class="histoTitle">Settings</p>
   <p>Sides:&nbsp;
     <input id="sides" type="number" min="2" max="20" value="3" [(ngModel)]="settings.sides" />
   </p>
@@ -8,12 +8,13 @@
     <input id="points" type="number" min="100" max="10000" step="100" value="500" [(ngModel)]="settings.points" />
   </p>
   <p>Divisor:&nbsp;
-      <input id="divisor" type="number" min="0.1" max="10000" value="2.0" [(ngModel)]="settings.divisor" />
-    </p>
-    <p>
+    <input id="divisor" type="number" min="0.1" max="10000" value="2.0" [(ngModel)]="settings.divisor" />
+  </p>
+  <p>
     <input id="regular" type="checkbox" [checked]="settings.regular" (change)="settings.regular = !settings.regular" />Regular figure</p>
-    <p>
-    <input style="margin-left:2em" id="figureWidthPercent" type="number" min="5" max="100" step="1" value="80" [(ngModel)]="settings.figureWidthPercent" />% Width
+  <p *ngIf="settings.regular">
+    <input style="margin-left:2em" id="figureWidthPercent" type="number" min="5" max="100" step="1" value="80" [(ngModel)]="settings.figureWidthPercent"
+    />% Width
   </p>
 
   <p>

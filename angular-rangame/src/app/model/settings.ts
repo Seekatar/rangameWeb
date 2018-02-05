@@ -7,7 +7,7 @@ export class Settings {
   points: number = 500;
   showHistogram: boolean = false;
   foregroundColor: string = "#00008f";
-  backgroundColor: string = "#ffffff";
+  backgroundColor: string = "#f5f5f5";
   divisor: number = 2.0;
   figureWidthPercent: number = 80;
 
