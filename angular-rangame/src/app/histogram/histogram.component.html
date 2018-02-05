@@ -1,4 +1,5 @@
 <div *ngIf="plotter.plotted">
+<hr>
 <p class="histoTitle">Histogram for {{plotter.pointCount.length}} vertices</p>
 <div class="progress-bar horizontal roundedHisto" *ngFor="let point of plotter.pointCount; let i = index">
     <div class="progress-track">

@@ -9,7 +9,7 @@
     <button (click)="plot()" id="plot" class="rounded tooltip" [disabled]="!settings.pointsSet()">Plot
       <div class="tooltiptext">Click to plot points on the canvas</div>
     </button>
-    <button (click)="reset()" id="reset" class="rounded tooltip" [disabled]="!settings.pointsSet()">Reset
+    <button (click)="reset()" id="reset" class="rounded tooltip" [disabled]="false">Reset
       <div class="tooltiptext">Reset the canvas</div>
     </button>
     <app-status></app-status>
