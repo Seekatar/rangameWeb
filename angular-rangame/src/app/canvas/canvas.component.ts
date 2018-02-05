@@ -14,11 +14,13 @@ export class CanvasComponent implements OnInit {
 
   @Input()
   private settings: Settings;
+  width: number = 800;
+  height: number = 800;
+
 
   constructor(private plotter: PlotterService, private status: StatusService) { }
 
   ngOnInit() {
-    this.status.setMessage("Click in box");
   }
 
   setPoint(event) {
@@ -37,7 +39,6 @@ export class CanvasComponent implements OnInit {
       var i = x + 1
       var j = y + 1
 
-      this.plotter.canvas = event.currentTarget;
       var ctx = event.currentTarget.getContext("2d");
 
       ctx.fillRect(x, y, 2, 2);
@@ -45,7 +46,7 @@ export class CanvasComponent implements OnInit {
       this.settings.vertices[this.settings.totalPointsSet].x = x;
       this.settings.vertices[this.settings.totalPointsSet].y = y;
       this.settings.totalPointsSet++;
-      if ( this.settings.totalPointsSet < this.settings.sides )
+      if (this.settings.totalPointsSet < this.settings.sides)
         this.status.setMessage(`${this.settings.sides - this.settings.totalPointsSet} to go!`);
       else
         this.status.setMessage(`Press plot!`);

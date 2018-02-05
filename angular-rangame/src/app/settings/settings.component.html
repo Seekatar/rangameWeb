@@ -12,6 +12,10 @@
     </p>
     <p>
     <input id="regular" type="checkbox" [checked]="settings.regular" (change)="settings.regular != settings.regular" />Regular figure</p>
+    <p>
+    <input style="margin-left:2em" id="figureWidthPercent" type="number" min="5" max="100" step="1" value="80" [(ngModel)]="settings.figureWidthPercent" />% Width
+  </p>
+
   <p>
     <input id="histogram" type="checkbox" [checked]="settings.showHistogram" (change)="settings.showHistogram != settings.showHistogram"
     />Show histogram</p>

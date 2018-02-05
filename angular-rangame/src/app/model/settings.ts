@@ -2,13 +2,14 @@ import { Vertex } from "./vertex";
 
 export class Settings {
 
-  regular : boolean = false;
+  regular : boolean = true;
   sides: number = 3;
   points: number = 500;
   showHistogram: boolean = false;
   foregroundColor: string = "#000000";
   backgroundColor: string = "#ffffff";
   divisor: number = 2.0;
+  figureWidthPercent: number = 80;
 
   totalPointsSet: number = 0;
   vertices: Vertex [] = null;
