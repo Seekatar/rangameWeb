@@ -15,7 +15,7 @@ export class HistogramComponent implements OnInit {
   @Input()
   settings: Settings
 
-  constructor(private plotter: PlotterService) {
+  constructor(public plotter: PlotterService) {
   }
 
   ngOnInit() {
