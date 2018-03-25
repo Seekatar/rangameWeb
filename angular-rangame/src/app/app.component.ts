@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Settings } from './model/settings'
+import { Settings } from './model/settings';
 import { PlotterService } from './plotter.service';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { StatusService } from './status.service';
@@ -21,10 +21,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if ( this.settings.regular)
-    {
+    if (this.settings.regular) {
       this.plotter.setRegularPoints(this.settings);
-      this.status.setMessage("Press plot!");
+      this.status.setMessage('Press plot!');
     }
   }
 

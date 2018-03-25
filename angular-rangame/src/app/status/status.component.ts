@@ -8,10 +8,10 @@ import { StatusService } from '../status.service';
 })
 export class StatusComponent implements OnInit {
 
-  Message: string = "Loading...";
+  Message = 'Loading...';
 
   constructor(private status: StatusService) {
-    status.setMessage = (msg,fade) => (
+    status.setMessage = (msg, fade) => (
       this.Message = msg
     );
   }

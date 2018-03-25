@@ -1,20 +1,20 @@
-import { Vertex } from "./vertex";
+import { Vertex } from './vertex';
 
 export class Settings {
 
-  regular : boolean = true;
-  sides: number = 3;
-  points: number = 500;
-  showHistogram: boolean = false;
-  foregroundColor: string = "#00008f";
-  backgroundColor: string = "#f5f5f5";
-  divisor: number = 2.0;
-  figureWidthPercent: number = 80;
+  regular = true;
+  sides = 3;
+  points = 500;
+  showHistogram = false;
+  foregroundColor = '#00008f';
+  backgroundColor = '#f5f5f5';
+  divisor = 2.0;
+  figureWidthPercent = 80;
 
-  totalPointsSet: number = 0;
-  vertices: Vertex [] = null;
+  totalPointsSet = 0;
+  vertices: Vertex[] = null;
 
-  pointsSet() : boolean {
+  pointsSet(): boolean {
     return this.totalPointsSet === this.sides;
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Settings } from "../model/settings"
+import { Settings } from '../model/settings';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
@@ -20,6 +20,6 @@ export class SettingsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log("Changeses!!!")
+    console.log('Changeses!!!');
   }
 }
