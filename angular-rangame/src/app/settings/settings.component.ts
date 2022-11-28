@@ -20,6 +20,6 @@ export class SettingsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log('Changeses!!!');
+    console.log('Changes!');
   }
 }
